@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+a.page-link{
+    height: 100% !important;
+}
+a.ng2-smart-action-delete-delete {
+    color: white;
+}
+.fa {
+    color: white;
+}
