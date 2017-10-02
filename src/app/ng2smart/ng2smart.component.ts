@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Ng2SmartTableModule, LocalDataSource } from 'ng2-smart-table';
+import {Ng2SmartTableModule, LocalDataSource, ServerDataSource} from 'ng2-smart-table';
 import {CustomRenderComponent} from './custom-render.component';
+import { Http } from '@angular/http';
 @Component({
   selector: 'app-ng2smart',
   templateUrl: './ng2smart.component.html',
@@ -8,9 +9,13 @@ import {CustomRenderComponent} from './custom-render.component';
 })
 export class Ng2smartComponent implements OnInit {
     settings = {
+        edit: {
+          editButtonContent: '<i class="fa fa-pencil" aria-hidden="true"></i>',
+          editButtonClass: 'btn btn-primary btn-sm'
+        },
         delete: {
-            deleteButtonContent: '<i class="fa fa-pencil" style="color:white !important;" aria-hidden="true"></i>',
-            deleteButtonClass: 'btn btn-success btn-sm'
+            deleteButtonContent: '<i class="fa fa-trash" aria-hidden="true"></i>',
+            deleteButtonClass: 'btn btn-danger btn-sm'
             /*attr: {
     class: 'btn btn-success'
 }*/
@@ -19,7 +24,7 @@ export class Ng2smartComponent implements OnInit {
             addButtonContent: 'chido'
         },
         actions: {
-            edit: false,
+            //edit: false,
             position: 'right'
           //delete: false,
         },
@@ -134,9 +139,12 @@ export class Ng2smartComponent implements OnInit {
         }*/
     ];
 
-    source: LocalDataSource; // add a property to the component
-    constructor() {
-        this.source = new LocalDataSource(this.data); // create the source
+    //source: LocalDataSource; // add a property to the component
+    source: ServerDataSource;
+    constructor(http: Http) {
+        this.source = new ServerDataSource(
+            http, { endPoint: 'https://jsonplaceholder.typicode.com/photos' }
+        );//new LocalDataSource(this.data); // create the source
     }
     ngOnInit() {
     }
