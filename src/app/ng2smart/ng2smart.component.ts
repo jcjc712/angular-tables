@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Ng2SmartTableModule, LocalDataSource, ServerDataSource} from 'ng2-smart-table';
+import { Ng2SmartTableModule, LocalDataSource, ServerDataSource } from 'ng2-smart-table';
 import {CustomRenderComponent} from './custom-render.component';
 import { Http } from '@angular/http';
 @Component({
@@ -139,12 +139,15 @@ export class Ng2smartComponent implements OnInit {
         }*/
     ];
 
-    //source: LocalDataSource; // add a property to the component
+    /*source: LocalDataSource; // add a property to the component
+    constructor() {
+        this.source = new LocalDataSource(this.data); // create the source
+    }*/
     source: ServerDataSource;
+
     constructor(http: Http) {
-        this.source = new ServerDataSource(
-            http, { endPoint: 'https://jsonplaceholder.typicode.com/photos' }
-        );//new LocalDataSource(this.data); // create the source
+        //this.source = new ServerDataSource(http, { endPoint: 'https://jsonplaceholder.typicode.com/photos'});
+        this.source = new ServerDataSource(http, { endPoint: 'http://127.0.0.1:8000/api'});
     }
     ngOnInit() {
     }
