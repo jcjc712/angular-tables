@@ -27,31 +27,56 @@ export class ConciliationsComponent implements OnInit {
       class: 'table'
     },
     columns: {
-      id: {
-        title: 'ID',
+      idIncidence: {
+        title: 'IdIncidencia',
         filter: false,
         editable: false
       },
-      name: {
-        title: 'Full Name',
+      idConciliation: {
+        title: 'IdConciliación',
         filter: false
       },
-      email: {
-        title: 'Email',
+      detail: {
+        title: 'Detalle',
         filter: false,
-        editor: {
-          type: 'checkbox'
-        }
       },
+        created: {
+            title: 'Creación',
+            filter: false,
+        },
+        updated: {
+            title: 'Actualización',
+            filter: false,
+        },
+        nbResponse: {
+            title: 'Nb Respuesta',
+            filter: false,
+        },
+        operationNumber: {
+            title: 'No. Operación',
+            filter: false,
+        },
+        authorizationType: {
+            title: 'Tipo. Autoriz.',
+            filter: false,
+        },
+        authorizationNumber: {
+            title: 'No. Autoriz.',
+            filter: false,
+        },
+        status: {
+            title: 'Estatus',
+            filter: false,
+        },
       actions: {
-        title: 'Actions',
+        title: 'Confirmar',
         type: 'html'
       }
     }
   };
   source: MyServerDataSourceService;
   constructor(private http: Http) {
-    this.source = new MyServerDataSourceService(http, { endPoint: 'http://127.0.0.1:8000/api', sortFieldKey: 'orden'});
+    this.source = new MyServerDataSourceService(http, { endPoint: 'http://back.pagofacil.local.net/TarjetaPresente/Mit_Services_IncidenciasConciliacion/incidencias?iDisplayLength=10&iDisplayStart=0&idConciliacion=425&filtroEstatus=1', sortFieldKey: 'orden'});
     this.source.setTransformClass(new ConciliationTransformResponse());
   }
 
