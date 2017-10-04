@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Ng2SmartTableModule, LocalDataSource, ServerDataSource } from 'ng2-smart-table';
 import {CustomRenderComponent} from './custom-render.component';
 import { Http } from '@angular/http';
+import {TransformLocalService} from './transform-local.service';
+import {MyServerDataSourceService} from '../shared/smart-table/my-server-data-source.service';
 @Component({
   selector: 'app-ng2smart',
   templateUrl: './ng2smart.component.html',
@@ -139,15 +140,17 @@ export class Ng2smartComponent implements OnInit {
         }*/
     ];
 
-    /*source: LocalDataSource; // add a property to the component
-    constructor() {
+    //source: LocalDataSource; // add a property to the component
+    /*constructor() {
         this.source = new LocalDataSource(this.data); // create the source
     }*/
-    source: ServerDataSource;
+    source: MyServerDataSourceService;
 
     constructor(http: Http) {
         //this.source = new ServerDataSource(http, { endPoint: 'https://jsonplaceholder.typicode.com/photos'});
-        this.source = new ServerDataSource(http, { endPoint: 'http://127.0.0.1:8000/api'});
+        this.source = new MyServerDataSourceService(http, { endPoint: 'http://127.0.0.1:8000/api', sortFieldKey: 'orden'});
+        this.source.setTransformClass(new TransformLocalService());
+        //this.source = new LocalDataSource(this.data);
     }
     ngOnInit() {
     }
@@ -175,6 +178,22 @@ export class Ng2smartComponent implements OnInit {
     }
 
     deleteItem(event) {
-        console.log(event);
+        /*estás seguro que quieres borrar*/
+        /*logica de borrado*/
+        this.source.remove(event.data);
+        //console.log(event);
+    }
+    updateItem(event) {
+        const deviceDetails = event.data;
+        const updatedData = deviceDetails;
+
+// activate/deactivate
+        if ( deviceDetails['status'] === 'active') {
+            updatedData['status'] = 'inactive';
+            this.source.update(deviceDetails, updatedData);
+        } else {
+            updatedData['status'] = 'active';
+            this.source.update(deviceDetails, updatedData);
+        }
     }
 }
