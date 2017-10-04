@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import {Ng2SmartTableModule} from 'ng2-smart-table';
 import { Ng2smartComponent } from './ng2smart/ng2smart.component';
 import {CustomRenderComponent} from './ng2smart/custom-render.component';
+import { ConciliationsComponent } from './conciliations/conciliations.component';
 
 @NgModule({
   entryComponents: [CustomRenderComponent],
@@ -12,6 +13,7 @@ import {CustomRenderComponent} from './ng2smart/custom-render.component';
     AppComponent,
     Ng2smartComponent,
       CustomRenderComponent,
+      ConciliationsComponent,
   ],
   imports: [
     BrowserModule,
