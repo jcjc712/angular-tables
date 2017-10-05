@@ -1,7 +1,11 @@
+<app-header></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-ng2smart></app-ng2smart>
+      <app-modal></app-modal>
+      <button class="btn btn-success" (click)="openModal()" >open</button>
+      <alert></alert>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

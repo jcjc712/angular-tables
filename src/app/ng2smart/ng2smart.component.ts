@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {CustomRenderComponent} from './custom-render.component';
 import { Http } from '@angular/http';
 import {TransformLocalService} from './transform-local.service';
+import { AlertService } from '../tools/toaster/_services/index';
 import {MyServerDataSourceService} from '../shared/smart-table/my-server-data-source.service';
+
+
 @Component({
   selector: 'app-ng2smart',
   templateUrl: './ng2smart.component.html',
@@ -146,7 +149,7 @@ export class Ng2smartComponent implements OnInit {
     }*/
     source: MyServerDataSourceService;
 
-    constructor(http: Http) {
+    constructor(private alertService: AlertService, http: Http) {
         //this.source = new ServerDataSource(http, { endPoint: 'https://jsonplaceholder.typicode.com/photos'});
         this.source = new MyServerDataSourceService(http, { endPoint: 'http://127.0.0.1:8000/api', pagerLimitKey: 'iDisplayLength'});
         this.source.setTransformClass(new TransformLocalService());
@@ -195,5 +198,30 @@ export class Ng2smartComponent implements OnInit {
             updatedData['status'] = 'active';
             this.source.update(deviceDetails, updatedData);
         }
+    }
+
+
+
+
+
+    /*Toast methods*/
+    success(message: string) {
+        this.alertService.success(message);
+    }
+
+    error(message: string) {
+        this.alertService.error(message);
+    }
+
+    info(message: string) {
+        this.alertService.info(message);
+    }
+
+    warn(message: string) {
+        this.alertService.warn(message);
+    }
+
+    clear() {
+        this.alertService.clear();
     }
 }

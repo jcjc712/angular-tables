@@ -8,3 +8,11 @@ a.ng2-smart-action-delete-delete {
 .fa {
     color: white;
 }
+
+.btn {
+    cursor: pointer;
+}
+
+.table th, .table td {
+    padding: 0.5rem;
+}
