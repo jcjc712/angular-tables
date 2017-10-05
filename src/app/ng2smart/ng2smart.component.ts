@@ -148,7 +148,7 @@ export class Ng2smartComponent implements OnInit {
 
     constructor(http: Http) {
         //this.source = new ServerDataSource(http, { endPoint: 'https://jsonplaceholder.typicode.com/photos'});
-        this.source = new MyServerDataSourceService(http, { endPoint: 'http://127.0.0.1:8000/api', sortFieldKey: 'orden'});
+        this.source = new MyServerDataSourceService(http, { endPoint: 'http://127.0.0.1:8000/api', pagerLimitKey: 'iDisplayLength'});
         this.source.setTransformClass(new TransformLocalService());
         //this.source = new LocalDataSource(this.data);
     }

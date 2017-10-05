@@ -76,7 +76,10 @@ export class ConciliationsComponent implements OnInit {
   };
   source: MyServerDataSourceService;
   constructor(private http: Http) {
-    this.source = new MyServerDataSourceService(http, { endPoint: 'http://back.pagofacil.local.net/TarjetaPresente/Mit_Services_IncidenciasConciliacion/incidencias?iDisplayLength=10&iDisplayStart=0&idConciliacion=425&filtroEstatus=1', sortFieldKey: 'orden'});
+    this.source = new MyServerDataSourceService(http, {
+          endPoint: 'http://back.pagofacil.local.net/TarjetaPresente/Mit_Services_IncidenciasConciliacion/incidencias?iDisplayLength=10&iDisplayStart=0&idConciliacion=425&filtroEstatus=1',
+          pagerLimitKey: 'iDisplayLength',
+        });
     this.source.setTransformClass(new ConciliationTransformResponse());
   }
 
