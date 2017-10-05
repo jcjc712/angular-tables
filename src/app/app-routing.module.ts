@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { Ng2smartComponent } from './ng2smart/ng2smart.component';
+import {ConciliationsComponent} from './conciliations/conciliations.component';
 const appRoutes: Routes = [
     {   path: '', redirectTo: '/example', pathMatch: 'full'},
-    {   path: 'example', component: Ng2smartComponent },
+    {   path: 'example', component: ConciliationsComponent },
 ];
 @NgModule({
     imports: [ RouterModule.forRoot(appRoutes, { useHash: true }) ],

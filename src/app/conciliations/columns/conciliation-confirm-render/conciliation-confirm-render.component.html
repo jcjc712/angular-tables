@@ -1,0 +1,4 @@
+<button
+        *ngIf="rowData.estatus != 1 &&
+        (rowData.confirmado == 'false' || rowData.confirmado == false || rowData.estatus == 3)"
+        type="button" class="btn btn-success btn-sm" style="color: white;">Confirmar</button>

@@ -15,8 +15,24 @@ import { AlertService } from './tools/toaster/_services/index';
 /*Modals*/
 import { ModalComponent } from './tools/modal/modal/modal.component';
 import {ModalService} from './tools/modal/modal/modal.service';
+/*General Modal*/
+import { GeneralModalComponent } from './tools/general-modal/general-modal.component';
+import {GeneralModalService} from './tools/general-modal/general-modal.service';
+
+import { ConciliationStatusRenderComponent } from './conciliations/columns/conciliation-status-render/conciliation-status-render.component';
+import { ConciliationInfoRenderComponent } from './conciliations/columns/conciliation-info-render/conciliation-info-render.component';
+import { ConciliationResponseRenderComponent } from './conciliations/columns/conciliation-response-render/conciliation-response-render.component';
+import { ConciliationConfirmRenderComponent } from './conciliations/columns/conciliation-confirm-render/conciliation-confirm-render.component';
+
 @NgModule({
-  entryComponents: [CustomRenderComponent],
+  entryComponents: [
+      CustomRenderComponent,
+      /*Conciliations*/
+      ConciliationStatusRenderComponent,
+      ConciliationInfoRenderComponent,
+      ConciliationResponseRenderComponent,
+      ConciliationConfirmRenderComponent
+  ],
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -24,7 +40,12 @@ import {ModalService} from './tools/modal/modal/modal.service';
       CustomRenderComponent,
       ConciliationsComponent,
     AlertComponent,
-    ModalComponent
+    ModalComponent,
+      ConciliationStatusRenderComponent,
+      ConciliationInfoRenderComponent,
+      ConciliationResponseRenderComponent,
+      ConciliationConfirmRenderComponent,
+      GeneralModalComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +56,7 @@ import {ModalService} from './tools/modal/modal/modal.service';
   providers: [
     AlertService,
     ModalService,
+      GeneralModalService,
   ],
   bootstrap: [AppComponent]
 })

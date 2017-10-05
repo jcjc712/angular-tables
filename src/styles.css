@@ -16,3 +16,10 @@ a.ng2-smart-action-delete-delete {
 .table th, .table td {
     padding: 0.5rem;
 }
+.table-responsive {
+    display: block !important;
+}
+.filter-box{
+    padding-top: 10px;
+    background-color: #eee;
+}

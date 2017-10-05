@@ -1,0 +1,224 @@
+<div #myModal class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detalle</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form>
+                    <div class="row">
+                    <div class="col-6 col-md-3">
+                        <div class="form-group">
+                            <label for="no_operacion">no. operacion</label>
+                            <input readonly type="text" class="form-control" id="no_operacion"
+                                   [value]="rowData.nu_operation">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="form-group">
+                            <label for="cd_usuario">cd usuario</label>
+                            <input readonly type="text" class="form-control" id="cd_usuario"
+                                   [value]="rowData.cd_usuario">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="form-group">
+                            <label for="cd_empresa">cd empresa</label>
+                            <input readonly type="text" class="form-control" id="cd_empresa"
+                                   [value]="rowData.cd_empresa">
+                        </div>
+                    </div>
+                        <div class="col-6 col-md-3">
+                            <div class="form-group">
+                                <label for="numero_sucursal">numero sucursal</label>
+                                <input readonly type="text" class="form-control" id="numero_sucursal"
+                                       [value]="rowData.nu_sucursal">
+                            </div>
+                        </div>
+
+
+                        <div class="col-6 col-md-3">
+                            <div class="form-group">
+                                <label for="nu_afiliacion">nu_afiliacion</label>
+                                <input readonly type="text" class="form-control" id="nu_afiliacion"
+                                       [value]="rowData.nu_afiliacion">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="form-group">
+                                <label for="nb_referencia">nb_referencia</label>
+                                <input readonly type="text" class="form-control" id="nb_referencia"
+                                       [value]="rowData.nb_referencia">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="form-group">
+                                <label for="cc_num">cc_num</label>
+                                <input readonly type="text" class="form-control" id="cc_num"
+                                       [value]="rowData.cc_num">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="form-group">
+                                <label for="cc_tp">cc_tp</label>
+                                <input readonly type="text" class="form-control" id="cc_tp"
+                                       [value]="rowData.cc_tp">
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-3">
+                            <div class="form-group">
+                                <label for="nu_importe">nu_importe</label>
+                                <input readonly type="text" class="form-control" id="nu_importe"
+                                       [value]="rowData.nu_importe">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="form-group">
+                                <label for="cd_tipopago">cd_tipopago</label>
+                                <input readonly type="text" class="form-control" id="cd_tipopago"
+                                       [value]="rowData.cd_tipopago">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="form-group">
+                                <label for="cd_instrumento">cd_instrumento</label>
+                                <input readonly type="text" class="form-control" id="cd_instrumento"
+                                       [value]="rowData.cd_instrumento">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="form-group">
+                                <label for="nb_response">nb_response</label>
+                                <input readonly type="text" class="form-control" id="nb_response"
+                                       [value]="rowData.nb_resp">
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-3">
+                            <div class="form-group">
+                                <label for="nu_auth">nu_auth</label>
+                                <input readonly type="text" class="form-control" id="nu_auth"
+                                       [value]="rowData.nu_auth">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="form-group">
+                                <label for="cd_tipocobro">cd_tipocobro</label>
+                                <input readonly type="text" class="form-control" id="cd_tipocobro"
+                                       [value]="rowData.cd_tipocobro">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="fh_bank">
+                                <label for="fh_bank">nb_response</label>
+                                <input readonly type="text" class="form-control" id="fh_bank"
+                                       [value]="rowData.nb_response">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="form-group">
+                                <label for="tp_operation">tp_operation</label>
+                                <input readonly type="text" class="form-control" id="tp_operation"
+                                       [value]="rowData.tp_operation">
+                            </div>
+                        </div>
+
+
+                        <div class="col-6 col-md-3">
+                            <div class="form-group">
+                                <label for="nb_currency">nb_currency</label>
+                                <input readonly type="text" class="form-control" id="nb_currency"
+                                       [value]="rowData.nb_currency">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="form-group">
+                                <label for="cd_resp">cd_resp</label>
+                                <input readonly type="text" class="form-control" id="cd_resp"
+                                       [value]="rowData.cd_resp">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="form-group">
+                                <label for="nb_resp">nb_resp</label>
+                                <input readonly type="text" class="form-control" id="nb_resp"
+                                       [value]="rowData.nb_resp">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="form-group">
+                                <label for="cc_bin">cc_bin</label>
+                                <input readonly type="text" class="form-control" id="cc_bin"
+                                       [value]="rowData.cc_bin">
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-3">
+                            <div class="form-group">
+                                <label for="cc_mes">cc_mes</label>
+                                <input readonly type="text" class="form-control" id="cc_mes"
+                                       [value]="rowData.cc_mes">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="form-group">
+                                <label for="cc_anio">cc_anio</label>
+                                <input readonly type="text" class="form-control" id="cc_anio"
+                                       [value]="rowData.cc_anio">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="form-group">
+                                <label for="banda_moto">banda o moto</label>
+                                <input readonly type="text" class="form-control" id="banda_moto"
+                                       [value]="rowData.cd_forma_operar_banda_moto">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="fh_registro">fh_registro</label>
+                                <input readonly type="text" class="form-control" id="fh_registro"
+                                           [value]="rowData.fh_registro">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="nb_serie_lector">nb_serie_lector</label>
+                                <input readonly type="text" class="form-control" id="nb_serie_lector"
+                                       [value]="rowData.nb_serie_lector">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="nb_version">nb_version</label>
+                                <input readonly type="text" class="form-control" id="nb_version"
+                                       [value]="rowData.nb_version">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="cc_nombre">cc_nombre</label>
+                                <input readonly type="text" class="form-control" id="cc_nombre"
+                                       [value]="rowData.cc_nombre">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()" style="color: white;">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="#" (click)="showInfo()">{{ value }}</a>

@@ -1,9 +1,30 @@
 <br>
-<div class="input-group">
-  <input #search type="text" class="form-control" placeholder="Search for..." (keydown.enter)="onSearch(search.value)">
-  <span class="input-group-btn">
-        <button class="btn btn-secondary" type="button" (click)="onSearch(search.value)">Go!</button>
-      </span>
+<h4>Incidencias por conciliacion realizadas de archivos MIT</h4>
+
+<div class="card filter-box">
+    <div class="col-12 card-block">
+<form action="">
+    <div class="row">
+        <div class="col-8 col-sm-4">
+    <div class="form-group">
+        <label for="searchStatus">Estatus</label>
+        <select  #searchStatus  class="form-control" id="searchStatus">
+            <option value="">Selecciona...</option>
+            <option value="1">Conciliada</option>
+            <option value="2">Conciliada manualmente</option>
+            <option value="3">No conciliada</option>
+        </select>
+    </div>
+    </div>
+        <div class="col-4 col-sm-8" align="right">
+            <button style="position: inherit; top: 32px;" class="btn btn-secondary" type="button" (click)="onSearch(searchStatus.value)">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+</form>
+    </div>
 </div>
+  <!--<input #search type="text" class="form-control" placeholder="Search for..." (keydown.enter)="onSearch(search.value)">-->
 <ng2-smart-table [settings]="settings" [source]="source" (delete)="deleteItem($event)" (edit)="updateItem($event)">
 </ng2-smart-table>

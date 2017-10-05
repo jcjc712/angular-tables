@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {MyServerDataSourceService} from "../shared/smart-table/my-server-data-source.service";
+import {MyServerDataSourceService} from '../shared/smart-table/my-server-data-source.service';
 import { Http } from '@angular/http';
-import {ConciliationTransformResponse} from "./conciliation-transform-response";
+import {ConciliationTransformResponse} from './conciliation-transform-response';
+import {ConciliationStatusRenderComponent} from './columns/conciliation-status-render/conciliation-status-render.component';
+import {ConciliationInfoRenderComponent} from "./columns/conciliation-info-render/conciliation-info-render.component";
+import {ConciliationResponseRenderComponent} from "./columns/conciliation-response-render/conciliation-response-render.component";
+import {ConciliationConfirmRenderComponent} from "./columns/conciliation-confirm-render/conciliation-confirm-render.component";
 @Component({
   selector: 'app-conciliations',
   templateUrl: './conciliations.component.html',
@@ -18,67 +22,79 @@ export class ConciliationsComponent implements OnInit {
       deleteButtonClass: 'btn btn-success btn-sm'
     },
     actions: {
+        add: false,
+        edit: false,
+        delete: false,
       position: 'right'
     },
     mode: 'external',
     hideSubHeader: true,
     noDataMessage: 'Sin datos',
     attr: {
-      class: 'table'
+      class: 'table table-responsive'
     },
     columns: {
-      idIncidence: {
-        title: 'IdIncidencia',
+      id_t_incidencias_conciliacion_mit: {
+        title: 'Id. Incid.',
         filter: false,
-        editable: false
+          type: 'custom',
+          renderComponent: ConciliationInfoRenderComponent,
       },
-      idConciliation: {
-        title: 'IdConciliación',
-        filter: false
+      id_t_conciliaciones_mit: {
+        title: 'Id. Concil.',
+        filter: false,
       },
       detail: {
         title: 'Detalle',
         filter: false,
+        sort: false,
       },
-        created: {
+        fecha_creacion: {
             title: 'Creación',
             filter: false,
         },
         updated: {
-            title: 'Actualización',
+            title: 'Actual.',
             filter: false,
+            sort: false,
         },
-        nbResponse: {
-            title: 'Nb Respuesta',
+        nb_response: {
+            title: 'Nb. Respuesta',
             filter: false,
-        },
-        operationNumber: {
+            type: 'custom',
+            renderComponent: ConciliationResponseRenderComponent,
+    },
+        nu_operation: {
             title: 'No. Operación',
             filter: false,
         },
-        authorizationType: {
+        tp_operation: {
             title: 'Tipo. Autoriz.',
             filter: false,
         },
-        authorizationNumber: {
+        nu_auth: {
             title: 'No. Autoriz.',
             filter: false,
         },
-        status: {
+        estatus: {
             title: 'Estatus',
             filter: false,
+            type: 'custom',
+            renderComponent: ConciliationStatusRenderComponent,
         },
       actions: {
         title: 'Confirmar',
-        type: 'html'
-      }
+          sort: false,
+          type: 'custom',
+          renderComponent: ConciliationConfirmRenderComponent,
+  }
     }
   };
   source: MyServerDataSourceService;
   constructor(private http: Http) {
     this.source = new MyServerDataSourceService(http, {
-          endPoint: 'http://back.pagofacil.local.net/TarjetaPresente/Mit_Services_IncidenciasConciliacion/incidencias?iDisplayLength=10&iDisplayStart=0&idConciliacion=425&filtroEstatus=1',
-          pagerLimitKey: 'iDisplayLength',
+          endPoint: 'http://back.pagofacil.local.net/TarjetaPresente/Mit_Services_IncidenciasConciliacion/incidencias?idConciliacion=425',//?iDisplayLength=10&iDisplayStart=0&idConciliacion=425&filtroEstatus=1',
+          //pagerLimitKey: 'iDisplayLength',
         });
     this.source.setTransformClass(new ConciliationTransformResponse());
   }
@@ -87,22 +103,11 @@ export class ConciliationsComponent implements OnInit {
   }
 
   onSearch(query: string = '') {
+    console.log(query);
     this.source.setFilter([
       // fields we want to include in the search
       {
-        field: 'id',
-        search: query
-      },
-      {
-        field: 'name',
-        search: query
-      },
-      {
-        field: 'username',
-        search: query
-      },
-      {
-        field: 'email',
+        field: 'status',
         search: query
       }
     ], false);
