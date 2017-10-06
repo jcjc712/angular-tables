@@ -23,3 +23,13 @@ a.ng2-smart-action-delete-delete {
     padding-top: 10px;
     background-color: #eee;
 }
+a.sort.asc, a.sort.desc {
+    display: inline-flex;
+}
+
+a.sort.desc[_ngcontent-c8]::after{
+    margin-top: 8px;
+}
+a.sort.asc[_ngcontent-c8]::after {
+    margin-top: 3px;
+}
